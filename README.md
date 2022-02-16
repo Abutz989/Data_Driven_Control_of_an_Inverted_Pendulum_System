@@ -1,108 +1,60 @@
 # Data-Driven Control of an Inverted Pendulum System
-
+This is the repository of the paper [ Data-Driven Control of an Inverted Pendulum System](https://www.overleaf.com/project/5fdf0263d2991b9894727c59). 
 
 Yizhak Abu, Tom Hirshberg and Alex M. Bronstein
 
+This notebook present the proposed framework of the paper.
 
-  
+## Define the system  
 
-
-This notebook present the proposed frame work of the paper.
-
-
-  
-
-   1.  Define the system  
-
+![RealVsSchame.eps](README_images/RealVsSchame.eps)
 
 <img src="https://latex.codecogs.com/gif.latex?\dot{x}&space;=\begin{array}{cccc}&space;\alpha^˙&space;\\&space;\frac{M\cdot&space;g\cdot&space;l}{I}\sin&space;(\alpha&space;)-\frac{c}{I}\alpha^˙&space;+\frac{1}{I}(\frac{k_t&space;\cdot&space;k_e&space;}{R}+f)\theta^˙&space;-\frac{k_t&space;}{R\cdot&space;I}V\\&space;-\alpha^¨&space;-\frac{k_t&space;(k_e&space;+f\cdot&space;R)}{R\cdot&space;I_{Wheel}&space;}\theta^˙&space;+\frac{k_t&space;}{R\cdot&space;I_{Wheel}&space;}V&space;\end{array}"/>
 
-
-
-2.  Ganerate Data for the referance model
-
-
-
+## Ganerate Data for the referance model
+This script Builds an iLQR controller and simulates its input and output in various initial conditions.
+![DataScheme.png](README_images/DataScheme.png)
 ```matlab:Code
 run DataGen.m
 ```
 
-
-
-3. Train the NN-controller and save the best validation results.
-
-
+## Train the NN-controller and save the best validation results.
 
 ```matlab:Code
 run FindingNets.m
 ```
 
-
-
-4. Stabilty Check
-
-
-
-
+## Stabilty Check
 credit : https://github.com/heyinUCB/Stability-Analysis-using-Quadratic-Constraints-for-Systems-with-Neural-Network-Controllers
-
-
+### Prerequisites
+* [CVX](http://cvxr.com/cvx/): Matlab software for convex programming
+* [SOSOPT](https://dept.aem.umn.edu/~AerospaceControl/): General SOS optimization utility
+* [Multipoly](https://dept.aem.umn.edu/~AerospaceControl/): Package used to represent multivariate polynomials
 
 ```matlab:Code
 addpath('.\Inverted_Pendulum_control_saturation')
 My_Pendulum_sin_local
 ```
-
-
 ```text:Output
-P = 13x13    
-1.0e+03 *
-
-    0.0797    0.0116   -0.0050    0.0051    0.0017   -0.0020    0.0070    0.0016   -0.0012    0.0038    0.0009   -0.0006   -0.0003
-    0.0116    0.0102   -0.0030   -0.0029   -0.0014   -0.0001   -0.0013   -0.0013   -0.0000   -0.0006   -0.0011    0.0002    0.0011
-   -0.0050   -0.0030    0.0061    0.0022    0.0008   -0.0013    0.0011    0.0005   -0.0009    0.0004    0.0004   -0.0009    0.0000
-    0.0051   -0.0029    0.0022    0.0487    0.0060   -0.0011    0.0264    0.0033   -0.0006    0.0262    0.0043   -0.0009    0.0000
-    0.0017   -0.0014    0.0008    0.0060    0.0031   -0.0005    0.0015    0.0007   -0.0003    0.0020    0.0007   -0.0004    0.0000
-   -0.0020   -0.0001   -0.0013   -0.0011   -0.0005    0.0015   -0.0001   -0.0002    0.0000   -0.0003   -0.0002    0.0001   -0.0000
-    0.0070   -0.0013    0.0011    0.0264    0.0015   -0.0001    0.0490    0.0065   -0.0007    0.0248    0.0042   -0.0009    0.0000
-    0.0016   -0.0013    0.0005    0.0033    0.0007   -0.0002    0.0065    0.0030   -0.0004    0.0017    0.0007   -0.0003   -0.0000
-   -0.0012   -0.0000   -0.0009   -0.0006   -0.0003    0.0000   -0.0007   -0.0004    0.0013    0.0003   -0.0001   -0.0000   -0.0000
-    0.0038   -0.0006    0.0004    0.0262    0.0020   -0.0003    0.0248    0.0017    0.0003    0.0457    0.0070   -0.0009    0.0000
-
 traceP = 252.3150
 ```
-
-
 ![figure_0.png](README_images/figure_0.png)
 
-
-
+## Experimental system validation
 The last state is in Lab, each controller should be tested on a real system for preformance evaluating.:
 
-
-  
-
-```matlab:Code
-open Experimntal_Results_1.fig 
-open DistrubExpAlph.fig
-```
-
-
+Response to Unstable Initial Condition , compare to LQR controller:
 ![figure_1.png](README_images/figure_1.png)
+![Stab.gif](README_images/Stab.gif)
 
-
+Robustness to Disturbances:
 ![figure_2.png](README_images/figure_2.png)
+![Disturbed.gif](README_images/Disturbed.gif)
 
-
-```matlab:Code
-open DelayExpAlph.fig
-```
-
-
+Robustness to delays:
 ![figure_3.png](README_images/figure_3.png)
 
 
-```matlab:Code
+## License
 
-```
-
+This project is released under the MIT License. Please review the [License file](LICENSE) for more details.
