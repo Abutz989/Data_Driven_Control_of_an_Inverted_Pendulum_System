@@ -8,8 +8,7 @@ This notebook present the proposed framework of the paper.
 ## Define the system  
 
 ![RealVsSchame.png](README_images/RealVsSchame.png)
-
--<img src="https://latex.codecogs.com/gif.latex?\dot{x}&space;=\begin{array}{cccc}&space;\alpha^˙&space;\\&space;\frac{M\cdot&space;g\cdot&space;l}{I}\sin&space;(\alpha&space;)-\frac{c}{I}\alpha^˙&space;+\frac{1}{I}(\frac{k_t&space;\cdot&space;k_e&space;}{R}+f)\theta^˙&space;-\frac{k_t&space;}{R\cdot&space;I}V\\&space;-\alpha^¨&space;-\frac{k_t&space;(k_e&space;+f\cdot&space;R)}{R\cdot&space;I_{Wheel}&space;}\theta^˙&space;+\frac{k_t&space;}{R\cdot&space;I_{Wheel}&space;}V&space;\end{array}"/>
+![equation.png](README_images/equation.png)
 
 ## Ganerate Data for the referance model
 This script Builds an iLQR controller and simulates its input and output in various initial conditions.
