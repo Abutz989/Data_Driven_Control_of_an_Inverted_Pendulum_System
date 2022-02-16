@@ -43,11 +43,13 @@ traceP = 252.3150
 The last state is in Lab, each controller should be tested on a real system for preformance evaluating.:
 
 Response to Unstable Initial Condition , compare to LQR controller:
+
 ![Stab.gif](README_images/Stab.gif)
 ![figure_1.png](README_images/figure_1.png)
 
 
 Robustness to Disturbances:
+
 ![Disturbed.gif](README_images/Disturbed.gif)
 ![figure_2.png](README_images/figure_2.png)
 
