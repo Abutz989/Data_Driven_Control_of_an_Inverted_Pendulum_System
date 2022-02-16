@@ -7,9 +7,9 @@ This notebook present the proposed framework of the paper.
 
 ## Define the system  
 
-![RealVsSchame.eps](README_images/RealVsSchame.eps)
+![RealVsSchame.png](README_images/RealVsSchame.png)
 
-<img src="https://latex.codecogs.com/gif.latex?\dot{x}&space;=\begin{array}{cccc}&space;\alpha^˙&space;\\&space;\frac{M\cdot&space;g\cdot&space;l}{I}\sin&space;(\alpha&space;)-\frac{c}{I}\alpha^˙&space;+\frac{1}{I}(\frac{k_t&space;\cdot&space;k_e&space;}{R}+f)\theta^˙&space;-\frac{k_t&space;}{R\cdot&space;I}V\\&space;-\alpha^¨&space;-\frac{k_t&space;(k_e&space;+f\cdot&space;R)}{R\cdot&space;I_{Wheel}&space;}\theta^˙&space;+\frac{k_t&space;}{R\cdot&space;I_{Wheel}&space;}V&space;\end{array}"/>
+-<img src="https://latex.codecogs.com/gif.latex?\dot{x}&space;=\begin{array}{cccc}&space;\alpha^˙&space;\\&space;\frac{M\cdot&space;g\cdot&space;l}{I}\sin&space;(\alpha&space;)-\frac{c}{I}\alpha^˙&space;+\frac{1}{I}(\frac{k_t&space;\cdot&space;k_e&space;}{R}+f)\theta^˙&space;-\frac{k_t&space;}{R\cdot&space;I}V\\&space;-\alpha^¨&space;-\frac{k_t&space;(k_e&space;+f\cdot&space;R)}{R\cdot&space;I_{Wheel}&space;}\theta^˙&space;+\frac{k_t&space;}{R\cdot&space;I_{Wheel}&space;}V&space;\end{array}"/>
 
 ## Ganerate Data for the referance model
 This script Builds an iLQR controller and simulates its input and output in various initial conditions.
@@ -44,12 +44,14 @@ traceP = 252.3150
 The last state is in Lab, each controller should be tested on a real system for preformance evaluating.:
 
 Response to Unstable Initial Condition , compare to LQR controller:
-![figure_1.png](README_images/figure_1.png)
 ![Stab.gif](README_images/Stab.gif)
+![figure_1.png](README_images/figure_1.png)
+
 
 Robustness to Disturbances:
-![figure_2.png](README_images/figure_2.png)
 ![Disturbed.gif](README_images/Disturbed.gif)
+![figure_2.png](README_images/figure_2.png)
+
 
 Robustness to delays:
 ![figure_3.png](README_images/figure_3.png)
